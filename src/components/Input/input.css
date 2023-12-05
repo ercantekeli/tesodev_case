@@ -1,0 +1,54 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.label{
+    color: #686868;
+    font-weight: 700;
+}
+
+.input{
+    color: rgba(72, 72, 72, 1);
+    border-width: 1.5px;
+    border-style: solid;
+    border-color: #484848;
+    height: 46px;
+    border-radius: 12px;
+    font-weight: 700;
+    padding: 0 17px;
+
+    &:hover{
+        background-color: rgba(100, 100, 100, 0.08);
+    }
+    &::placeholder{
+        font-weight: 700;
+    }
+}
+
+.labelErrorStyle{
+    color: rgba(255, 0, 0, 0.70);
+    font-weight: 700;
+}
+
+.inputErrorStyle{
+    border-width: 1.5px;
+    border-style: solid;
+    border-color: #FF0000;
+    height: 46px;
+    border-radius: 12px;
+    font-weight: 700;
+    padding: 0 17px;
+    &:focus{
+        outline: none;
+    }
+    &::placeholder{
+        color:rgba(255, 0, 0, 0.50)
+    }
+}
+
+.messageErrorStyle{
+    color: rgba(255, 0, 0, 0.50);
+    font-weight: 700;
+}
