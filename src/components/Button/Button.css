@@ -1,10 +1,13 @@
 .main-btn{
   background-color: #204080;
   color: #fff;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 15px;
   transition: ease-in-out;
   transition-duration: 200ms;
+  cursor: pointer;
+  outline: none;
+  border: none;
   /* padding figmaya gore duzenlenecek         */
 }
 .main-btn:hover{
