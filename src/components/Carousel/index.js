@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ArrowIcon } from "../../assets";
 
-export const Carousel = ({children}) => {
+export const Carousel = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
@@ -25,15 +25,22 @@ export const Carousel = ({children}) => {
 
   return (
     <div>
-      <div style={{ display: "flex", alignItems:"center", overflow: "hidden", width:"100%"}}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          overflow: "hidden",
+          width: "100%",
+        }}
+      >
         <div onClick={prevSlide} className="left-arrow">
-          <ArrowIcon style={{transform:`rotate(180deg)`}} />
+          <ArrowIcon style={{ transform: `rotate(180deg)` }} />
         </div>
         <div
           style={{
             display: "flex",
-            justifyContent:"center",
-            flex:1,
+            justifyContent: "center",
+            flex: 1,
             transition: "transform 0.5s ease-in-out",
             ...updateCarousel(),
           }}

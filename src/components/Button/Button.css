@@ -1,15 +1,16 @@
-.main-btn{
+.main-btn {
   background-color: #204080;
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 40px;
   border-radius: 15px;
   transition: ease-in-out;
   transition-duration: 200ms;
   cursor: pointer;
   outline: none;
   border: none;
-  /* padding figmaya gore duzenlenecek         */
+
+  height: 46px;
 }
-.main-btn:hover{
-          background-color: #4F75C2;  
+.main-btn:hover {
+  background-color: #4f75c2;
 }

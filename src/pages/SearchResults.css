@@ -1,0 +1,9 @@
+.search-result_container {
+  padding-left: 186px;
+  /* padding-right: 200px; */
+  width: 70%;
+}
+.search-result-orderby {
+  display: flex;
+  justify-content: end;
+}

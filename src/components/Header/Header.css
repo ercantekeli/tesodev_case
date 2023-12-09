@@ -1,0 +1,28 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 35px;
+  padding-bottom: 5px;
+  padding-right: 70px;
+  padding-left: 37px;
+  margin-bottom: 80px;
+}
+
+.header-logo {
+  height: 63px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-input {
+  width: 510px;
+}
+
+.button-end {
+  justify-content: end;
+}
