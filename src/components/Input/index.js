@@ -13,10 +13,10 @@ export const Input = ({
   const id = useId();
   return (
     <div className="container">
+      {label && (
+        <p className={errorMessage ? "labelErrorStyle" : "label"}>{label}</p>
+      )}
       <label htmlFor={id} className="label-container">
-        {label && (
-          <p className={errorMessage ? "labelErrorStyle" : "label"}>{label}</p>
-        )}
         {isSearchInput && <SearchIcon />}
         <input
           value={value}

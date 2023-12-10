@@ -7,3 +7,4 @@ export * from "./SearchSummary";
 export * from "./Layout";
 export * from "./OrderBy";
 export * from "./ResultOption";
+export * from "./Pagination";

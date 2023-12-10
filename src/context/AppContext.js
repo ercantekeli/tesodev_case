@@ -1,25 +1,24 @@
-import { createContext, useContext } from "react";
-
+import { createContext, useContext, useState } from "react";
+import ResultData from "../helpers/mock-data.json";
 export const AppContext = createContext();
 
-// const appName1 = "appName1";
-// const appName2 = "appName2";
-// const appName3 = "appName3";
-// Context verilerini sağlayacak bir bileşen oluşturun
 const AppContextProvider = ({ children }) => {
-//   const [allData, setAllData] = useState([]);
-  // const values = { 
-  //         allData,
-  //          setAllData, 
-  //          appName1, 
-  //          appName2, 
-  //          appName3 };
+  const [inputText, setInputText] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
+  const [allData, setAllData] = useState(ResultData);
 
   return (
-    <AppContext.Provider 
-    // value={ values }
+    <AppContext.Provider
+      value={{
+        inputText,
+        setInputText,
+        filteredData,
+        setFilteredData,
+        allData,
+        setAllData,
+      }}
     >
-        {children}
+      {children}
     </AppContext.Provider>
   );
 };

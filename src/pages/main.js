@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Logo from "../assets/images/logo.png";
 import CarouselPic from "../assets/images/carouselPic.png";
 import {
@@ -10,11 +12,36 @@ import {
   SearchSummary,
 } from "../components";
 import "./Main.css";
+import { useAppContext } from "../context/AppContext";
 
-import { useNavigate } from "react-router-dom";
 const Main = () => {
-  const [inputText, setInputText] = useState("");
+  const { inputText, setInputText, setFilteredData, filteredData, allData } =
+    useAppContext();
   const navigate = useNavigate();
+  useEffect(() => {
+    if (inputText) {
+      getData();
+    } else {
+      setFilteredData([]);
+    }
+  }, [inputText]);
+
+  useEffect(() => {
+    setInputText("");
+  }, []);
+
+  // console.log(data);
+  const getData = () => {
+    const newData = allData?.data.filter((item) =>
+      item[1].toLowerCase().includes(inputText.toLowerCase())
+    );
+    setFilteredData(newData);
+  };
+
+  useEffect(() => {
+    console.log("filteredData :>> ", filteredData);
+  }, [filteredData]);
+
   return (
     <Layout isHome>
       <div className="main-logo">
@@ -42,44 +69,8 @@ const Main = () => {
             />
           </div>
         </div>
-        {inputText && (
-          <SearchSummary
-            data={[
-              [
-                1,
-                "Barris Dusting",
-                "Pixonyx",
-                "bdusting0@tamu.edu",
-                "499-866-1927",
-                "https://loc.gov/ultricies/eu/nibh/quisque/id/justo.jsp",
-                "China",
-                "Yanshi",
-                "5/10/2021",
-              ],
-              [
-                2,
-                "Jake Barok",
-                "Einti",
-                "jbarok1@ebay.co.uk",
-                "810-950-3191",
-                "https://drupal.org/vel.png",
-                "China",
-                "Leyuan",
-                "6/28/2021",
-              ],
-              [
-                3,
-                "Coretta Chicchelli",
-                "Mymm",
-                "cchicchelli2@discovery.com",
-                "261-444-3224",
-                "https://liveinternet.ru/pede.jsp",
-                "Denmark",
-                "København",
-                "7/5/2021",
-              ],
-            ]}
-          />
+        {filteredData && filteredData?.length > 0 && (
+          <SearchSummary data={filteredData} />
         )}
       </div>
       <Carousel>

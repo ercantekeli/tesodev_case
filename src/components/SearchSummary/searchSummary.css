@@ -1,6 +1,6 @@
 .search-summary {
   width: 718px;
-  height: 248px;
+  height: min-content;
   border: 1px solid #484848;
   border-radius: 8px;
   margin-top: 30px;

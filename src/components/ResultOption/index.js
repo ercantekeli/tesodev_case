@@ -9,13 +9,13 @@ export function ResultOption({ data }) {
         <div className="result-option-left">
           <MapPinIcon />
           <div>
-            <p className="address-first">18th Street Brewery</p>
-            <p className="address-second">Oakley Avenue, Hammond, IN</p>
+            <p className="address-first">{data[7]}</p>
+            <p className="address-second">{data[6]}</p>
           </div>
         </div>
         <div>
-          <p className="result-name">Jane Doe</p>
-          <p className="result-date">01/20/2021</p>
+          <p className="result-name">{data[1]}</p>
+          <p className="result-date">{data[8]}</p>
         </div>
       </div>
     </div>
