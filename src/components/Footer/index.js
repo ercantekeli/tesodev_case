@@ -9,7 +9,7 @@ export const Footer = () => {
       </div>
 
       <div className="adress">
-        <p>İletişim</p>
+        <p className="communication">İletişim</p>
         <p className="adress-desc">
           Adres: Çifte Havuzlar Mah. Eski Londra Asfaltı Cad. Kuluçka Merkezi D2
           Blok No: 151/1F İç Kapı No: 2B03 Esenler/İstanbul
