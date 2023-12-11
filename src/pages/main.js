@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Logo from "../assets/images/logo.png";
 import CarouselPic from "../assets/images/carouselPic.png";
+import CarouselPic2 from "../assets/images/CarouselPic-2.jpg";
 import {
   Button,
   Carousel,
@@ -42,6 +43,51 @@ const Main = () => {
     console.log("filteredData :>> ", filteredData);
   }, [filteredData]);
 
+  const items = [
+    {
+      src: CarouselPic,
+      alt: "Carousel Pic",
+      description: "A Plan to Rebuild the Bus Terminal Everyone Loves to Hate",
+      time: "1h ago",
+      person: "Troy Corlson",
+    },
+    {
+      src: CarouselPic2,
+      alt: "Carousel Pic 2",
+      description: "Brown Rocky Mountain Under Blue Sky",
+      time: "2h ago",
+      person: "Nick Wehrli",
+    },
+    {
+      src: CarouselPic,
+      alt: "Carousel Pic",
+      description: "A Plan to Rebuild the Bus Terminal Everyone Loves to Hate",
+      time: "1h ago",
+      person: "Troy Corlson",
+    },
+    {
+      src: CarouselPic2,
+      alt: "Carousel Pic 2",
+      description: "Brown Rocky Mountain Under Blue Sky",
+      time: "2h ago",
+      person: "Nick Wehrli",
+    },
+    {
+      src: CarouselPic,
+      alt: "Carousel Pic",
+      description: "A Plan to Rebuild the Bus Terminal Everyone Loves to Hate",
+      time: "1h ago",
+      person: "Troy Corlson",
+    },
+    {
+      src: CarouselPic2,
+      alt: "Carousel Pic 2",
+      description: "Brown Rocky Mountain Under Blue Sky",
+      time: "2h ago",
+      person: "Nick Wehrli",
+    },
+  ];
+
   return (
     <Layout isHome>
       <div className="main-logo">
@@ -73,25 +119,8 @@ const Main = () => {
           <SearchSummary data={filteredData} />
         )}
       </div>
-      <Carousel>
-        <>
-          <div>
-            <img src={CarouselPic} alt="carousel-img" />
-            <div>A Plan to Rebuild the Bus Terminal Everyone Loves to Hate</div>
-            <div>1h ago · by Troy Corlson</div>
-          </div>
-          <div>
-            <img src={CarouselPic} alt="carousel-img" />
-            <div>A Plan to Rebuild the Bus Terminal Everyone Loves to Hate</div>
-            <div>1h ago · by Troy Corlson</div>
-          </div>
-          <div>
-            <img src={CarouselPic} alt="carousel-img" />
-            <div>A Plan to Rebuild the Bus Terminal Everyone Loves to Hate</div>
-            <div>1h ago · by Troy Corlson</div>
-          </div>
-        </>
-      </Carousel>
+      <div className="top-news">Top News</div>
+      <Carousel items={items} />
       <Footer />
     </Layout>
   );

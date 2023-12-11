@@ -40,3 +40,10 @@
   /* display: flex; */
   width: 100%;
 }
+
+.top-news {
+  margin-top: 346px;
+  margin-left: 110px;
+  font-size: 32px;
+  font-weight: 700;
+}

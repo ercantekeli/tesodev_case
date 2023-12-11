@@ -1,71 +1,52 @@
 import React, { useState } from "react";
+import "./carousel.css";
 import { ArrowIcon } from "../../assets";
 
-export const Carousel = ({ children }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export const Carousel = ({ items, onPreviousClick, onNextClick }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex < items.length - 1 ? prevIndex + 1 : 0
-    );
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex > 0 ? prevIndex - 1 : items.length - 1
-    );
-  };
-
-  const updateCarousel = () => {
-    const newTransformValue = -currentIndex * 100 + "%";
-    return { transform: `translateX(${newTransformValue})` };
-  };
-
-  const items = [1, 2, 3, 4]; // Carousel içerisindeki öğeler
+  const displayImages = items.slice(currentImageIndex, currentImageIndex + 3);
 
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          overflow: "hidden",
-          width: "100%",
-        }}
-      >
-        <div onClick={prevSlide} className="left-arrow">
-          <ArrowIcon style={{ transform: `rotate(180deg)` }} />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            flex: 1,
-            transition: "transform 0.5s ease-in-out",
-            ...updateCarousel(),
-          }}
+      <div className="carousel-container">
+        <button
+          className="left-arrow"
+          onClick={() =>
+            setCurrentImageIndex(Math.max(0, currentImageIndex - 1))
+          }
+          disabled={currentImageIndex === 0}
         >
-          {items.map((item, index) => (
+          <ArrowIcon />
+        </button>
+        <div className="carousel-img_container">
+          {displayImages.map((item, index) => (
             <div
+              className="carousel-img_item"
               key={index}
-              style={{
-                flex: "0 0 auto",
-                width: "100%",
-                boxSizing: "border-box",
-              }}
+              style={{ marginRight: index < 2 ? "10px" : "0" }}
+              onClick={() => setCurrentImageIndex(currentImageIndex + index)}
             >
-              {item}
+              <img src={item?.src} alt={item?.alt} className="carousel-img" />
+              <div className="carousel-desc">{item?.description}</div>
+              <div className="carousel-subdesc">
+                {item?.time} · {item?.person}
+              </div>
             </div>
           ))}
-          {children}
         </div>
-        <div onClick={nextSlide}>
+        <button
+          className="right-arrow"
+          onClick={() =>
+            setCurrentImageIndex(
+              Math.min(currentImageIndex + 1, items.length - 3)
+            )
+          }
+          disabled={currentImageIndex === items.length - 3}
+        >
           <ArrowIcon />
-        </div>
+        </button>
       </div>
-
-      {/* <button onClick={prevSlide}>Önceki</button>
-      <button onClick={nextSlide}>Sonraki</button> */}
     </div>
   );
 };

@@ -1,5 +1,48 @@
-.left-arrow{
-    transform: rotate(180deg);
+.left-arrow {
+  transform: rotate(180deg);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.right-arrow {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-/* bu artik kullanilmiyor  */
+.carousel-img_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 23px;
+}
+
+.carousel-desc {
+  overflow-wrap: break-word;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.carousel-subdesc {
+  color: "#6C7072";
+  font-size: 12px;
+  font-family: Inter;
+}
+
+.carousel-img_item {
+  overflow-wrap: break-word;
+  flex: 1;
+}
+
+.carousel-img {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.carousel-container {
+  display: flex;
+  width: 100%;
+  gap: 23px;
+  margin-top: 49px;
+  padding: 0 55px;
+}

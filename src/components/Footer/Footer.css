@@ -1,24 +1,30 @@
-.main-footer{
-          display: flex;
-          justify-content: space-between;
-          padding: 0 0.5rem;
-          align-items: center;
-          height: 277px;
-          background-color: rgba(41,78,152,0.72);
-          /* position: absolute;
+.main-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  align-items: center;
+  height: 277px;
+  background-color: rgba(41, 78, 152, 0.72);
+  /* position: absolute;
           bottom: 0; */
-          width: 100%;
-          margin-top: 5rem;
+  width: 100%;
+  margin-top: 5rem;
 }
-.adress{
-          color: white;
-          padding: 1rem;
-          margin-bottom: 1rem;
+.adress {
+  color: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
-.adress-mail{
-          margin-top: 1rem;
+.adress-mail {
+  margin-top: 1rem;
+  font-weight: 700;
 }
-.adress-desc{
-          font-size: smaller;
-          font-weight: 100;
+.adress-desc {
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.communication {
+  font-weight: 700;
+  font-size: 18px;
 }
