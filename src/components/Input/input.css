@@ -8,6 +8,7 @@
   color: #686868;
   font-weight: 700;
 }
+
 .label-container {
   display: flex;
   align-items: center;
@@ -24,12 +25,27 @@
   }
 }
 
+.label-container_error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-width: 1.5px;
+  width: 100;
+  border-radius: 12px;
+  height: 46px;
+  &:hover {
+    background-color: rgba(100, 100, 100, 0.08);
+  }
+}
+
 .input {
   color: rgba(72, 72, 72, 1);
   height: 43px;
   font-weight: 700;
   width: 100%;
   border: none;
+  padding: 0 17px;
+  border-radius: 12px;
   &:hover {
     background-color: transparent;
   }
@@ -47,12 +63,14 @@
 }
 
 .inputErrorStyle {
+  width: 100%;
   border-width: 1.5px;
   border-style: solid;
   border-color: #ff0000;
   height: 46px;
   border-radius: 12px;
   font-weight: 700;
+  width: 100%;
   padding: 0 17px;
   &:focus {
     outline: none;

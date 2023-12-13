@@ -4,7 +4,7 @@ import SortIcon from "../../assets/icons/SortIcon";
 
 export function OrderBy({ onSelect }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSetselectedOption] = useState();
+  const [selectedOption, setSelectedOption] = useState();
   const [sortOptions] = useState([
     { id: 1, name: "Name ascending" },
     { id: 2, name: "Name descending" },
@@ -27,7 +27,7 @@ export function OrderBy({ onSelect }) {
               onClick={() => {
                 setIsOpen(false);
                 onSelect(option.id);
-                setSetselectedOption(option?.id);
+                setSelectedOption(option?.id);
               }}
             >
               {option?.name}

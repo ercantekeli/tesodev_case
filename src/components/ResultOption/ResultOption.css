@@ -19,7 +19,7 @@
   }
 }
 
-.result-option-left {
+.result-option_left {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -40,4 +40,5 @@
 }
 .result-date {
   font-weight: 500;
+  text-align: end;
 }

@@ -31,17 +31,12 @@ const Main = () => {
     setInputText("");
   }, []);
 
-  // console.log(data);
   const getData = () => {
     const newData = allData?.data.filter((item) =>
       item[1].toLowerCase().includes(inputText.toLowerCase())
     );
     setFilteredData(newData);
   };
-
-  useEffect(() => {
-    console.log("filteredData :>> ", filteredData);
-  }, [filteredData]);
 
   const items = [
     {

@@ -16,7 +16,10 @@ export const Input = ({
       {label && (
         <p className={errorMessage ? "labelErrorStyle" : "label"}>{label}</p>
       )}
-      <label htmlFor={id} className="label-container">
+      <label
+        htmlFor={id}
+        className={errorMessage ? "label-container_error" : "label-container"}
+      >
         {isSearchInput && <SearchIcon />}
         <input
           value={value}

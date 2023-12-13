@@ -1,81 +1,76 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import "./Pagination.css";
 
-export const Pagination = ({ length }) => {
-  const itemsPerPage = 5;
-  const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [length]);
-
+export const Pagination = ({
+  length,
+  itemsPerPage,
+  currentPage,
+  onPageChange,
+}) => {
   const totalPages = Math.ceil(length / itemsPerPage);
+  const maxPageButtons = 5;
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    onPageChange(page);
   };
 
-  const renderPagination = () => {
-    const pages = [];
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    let startPage = 1;
+    let endPage = totalPages;
 
-    if (totalPages <= 6) {
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(
-          <button
-            key={i}
-            onClick={() => handlePageChange(i)}
-            className={i === currentPage ? "active" : ""}
-          >
-            {i}
-          </button>
-        );
-      }
-    } else {
-      // Render the first 3 pages
-      for (let i = 1; i <= 3; i++) {
-        pages.push(
-          <button
-            key={i}
-            onClick={() => handlePageChange(i)}
-            className={i === currentPage ? "active" : ""}
-          >
-            {i}
-          </button>
-        );
-      }
+    if (totalPages > maxPageButtons) {
+      const halfMaxButtons = Math.floor(maxPageButtons / 2);
 
-      // Render dots if currentPage is beyond the first 3 pages
-      if (currentPage > 3) {
-        pages.push(<span key="dots1">...</span>);
-      }
-
-      // Render the last 3 pages and dots
-      for (let i = totalPages - 2; i <= totalPages; i++) {
-        pages.push(
-          <button
-            key={i}
-            onClick={() => handlePageChange(i)}
-            className={i === currentPage ? "active" : ""}
-          >
-            {i}
-          </button>
-        );
+      if (currentPage <= halfMaxButtons + 1) {
+        endPage = maxPageButtons;
+      } else if (currentPage >= totalPages - halfMaxButtons) {
+        startPage = totalPages - maxPageButtons + 1;
+      } else {
+        startPage = currentPage - halfMaxButtons;
+        endPage = currentPage + halfMaxButtons;
       }
     }
 
-    return pages;
+    for (let i = startPage; i <= endPage; i++) {
+      pageNumbers.push(
+        <li
+          key={i}
+          className={`pagination-item ${currentPage === i ? "active" : ""}`}
+          onClick={() => handlePageChange(i)}
+        >
+          {i}
+        </li>
+      );
+    }
+
+    if (startPage > 1) {
+      pageNumbers.unshift(
+        <li key="ellipsis-start" className="ellipsis">
+          ...
+        </li>
+      );
+    }
+
+    if (endPage < totalPages) {
+      pageNumbers.push(
+        <li key="ellipsis-end" className="ellipsis">
+          ...
+        </li>
+      );
+    }
+
+    return pageNumbers;
   };
 
+  const startIndex = (currentPage - 1) * itemsPerPage + 1;
+  const endIndex = Math.min(currentPage * itemsPerPage, length);
+  const displayedData = `Displaying ${startIndex} - ${endIndex} of ${length} results`;
+
   return (
-    <div className="pagination">
-      {currentPage > 1 && (
-        <button onClick={() => handlePageChange(currentPage - 1)}>
-          Previous
-        </button>
-      )}
-      {renderPagination()}
-      {currentPage < totalPages && (
-        <button onClick={() => handlePageChange(currentPage + 1)}>Next</button>
-      )}
+    <div className="pagination-container">
+      <ul className="pagination-list">{renderPageNumbers()}</ul>
+      <div className="pagination-info">{displayedData}</div>
     </div>
   );
 };
