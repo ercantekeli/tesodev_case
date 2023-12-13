@@ -4,7 +4,7 @@ This project is a web application developed using React. Tesodev is the name of 
 
 ## Features
 
-- **Home Page:** The main page of the project allows users to search data. Search results can be viewed by clicking the "Load More" or "Search" icons.
+- **Home Page:** The main page of the project allows users to search data. Search results can be viewed by clicking the "Load More" or "Search" buttons.
 
 - **Results Page:** When a search is performed or the "Load More" icon is clicked, the user is redirected to the results page. This page displays the search results in detail.
 
